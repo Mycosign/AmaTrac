@@ -81,7 +81,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'bankingsystem.wsgi.application'
 
-s
+
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 
