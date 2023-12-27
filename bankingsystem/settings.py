@@ -1,6 +1,7 @@
 
 import os
 from pathlib import Path
+import django_heroku
 
 from django.contrib.messages import constants as messages
 import cloudinary
@@ -16,7 +17,7 @@ SECRET_KEY = ')_z--t-qq1=s!l*c-1pg(%$3l%=ys9m7!fh@jtom47ozn-24^*'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['.vercel.app', '.now.sh', '127.0.0.1', '*']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -30,14 +31,12 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-
  
     'accounts',
     'core',
     'transactions',
-    'giftweb',
-    'django.contrib.humanize',
-
+    'bankcard',
+    'storages'
 ]
 
 
@@ -75,7 +74,6 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                'giftweb.custom_context_processors.notifications',
             ],
         },
     },
@@ -83,9 +81,11 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'bankingsystem.wsgi.application'
 
-
+s
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
+
+
 
 
 DATABASES = {
@@ -94,12 +94,14 @@ DATABASES = {
         'NAME': 'postgres',
         'USER': 'postgres',
         'PASSWORD': 'Firstwork51a51$',
-        'HOST': 'db.uwhabuvkfnkywvvjdmvz.supabase.co',
-        'PORT': '6543',
+        'HOST': 'db.hgxnxluhkzozdyoqyiqf.supabase.co',
+        'PORT': '5432',
     }
 }
 
+
 """
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -110,7 +112,6 @@ DATABASES = {
 # Password validation
 # https://docs.djangoproject.com/en/1.11/ref/settings/#auth-password-validators
 
-
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
@@ -119,6 +120,7 @@ AUTH_PASSWORD_VALIDATORS = [
         },
     },
 ]
+
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.11/topics/i18n/
@@ -137,9 +139,10 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 
-STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles_build", "static")
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static')
+]
 
 MEDIA_URL = '/media/'
 
@@ -159,14 +162,6 @@ AUTHENTICATION_BACKENDS = (
 )
 
 
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-
-
-
-DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-
-          
 cloudinary.config( 
   cloud_name = "dwpqoubdw", 
   api_key = "746427962229227", 
@@ -175,5 +170,6 @@ cloudinary.config(
 
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
-
+django_heroku.settings(locals())
+DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
 
