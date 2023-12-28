@@ -1,12 +1,13 @@
 
 import os
 from pathlib import Path
-import django_heroku
-
-from django.contrib.messages import constants as messages
 import cloudinary
 import cloudinary.uploader
 import cloudinary.api
+import django_heroku
+
+from django.contrib.messages import constants as messages
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -31,11 +32,15 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+
  
     'accounts',
     'core',
     'transactions',
-    'storages'
+    'giftweb',
+    'corsheaders',
+    'storages',
+    'django.contrib.humanize',
 ]
 
 
@@ -43,6 +48,7 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
 
+    "corsheaders.middleware.CorsMiddleware",
 
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -85,29 +91,17 @@ WSGI_APPLICATION = 'bankingsystem.wsgi.application'
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 
 
-
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'postgres',
         'USER': 'postgres',
         'PASSWORD': 'Firstwork51a51$',
-        'HOST': 'db.hgxnxluhkzozdyoqyiqf.supabase.co',
+        'HOST': 'db.ushiyubswablxqmhyjlm.supabase.co',
         'PORT': '5432',
     }
 }
 
-
-"""
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
-"""
 # Password validation
 # https://docs.djangoproject.com/en/1.11/ref/settings/#auth-password-validators
 
@@ -119,7 +113,6 @@ AUTH_PASSWORD_VALIDATORS = [
         },
     },
 ]
-
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.11/topics/i18n/
@@ -148,7 +141,6 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 
-
 MESSAGE_TAGS = {
     messages.SUCCESS: 'alert-success',
     messages.ERROR: 'alert-danger',
@@ -161,14 +153,18 @@ AUTHENTICATION_BACKENDS = (
 )
 
 
+
+django_heroku.settings(locals())
+DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'          
 cloudinary.config( 
-  cloud_name = "dwpqoubdw", 
-  api_key = "746427962229227", 
-  api_secret = "Mw778m_arBap_WKexphIdoar0dw" 
+  cloud_name = "djl5rhevy", 
+  api_key = "472775329791993", 
+  api_secret = "DKjvE0ikKJ0l5af9e6Q7QtD-Vr0" 
 )
 
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
-django_heroku.settings(locals())
-DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
+
+# Use the SMTP backend
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
