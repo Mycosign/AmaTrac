@@ -1,6 +1,6 @@
 
 from django.contrib import admin
-
+"""
 from .models import *
 # Register your models here.
 from django.utils.html import format_html
@@ -47,4 +47,4 @@ admin.site.register(CryptoWITHDRAW, CryptoWITHDRAWAdmin)
 
 admin.site.register(Payment, PaymentAdmin)
 admin.site.add_action(export_as_csv, name='export_selected')
-
+"""
