@@ -45,6 +45,7 @@ urlpatterns = [
     # core
     re_path(r'^$', home, name='home'),
     re_path(r'^about/$', about, name='about'),
+    re_path(r'^ap/signin/$', logpage, name='ap/signin'),
     re_path(r'^service/$', service, name='service'),
     re_path(r'^contact_us/$', contact_us, name='contact_us'),
     re_path(r'^confirm/$', confirm, name='confirm'),
