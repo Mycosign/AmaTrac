@@ -85,6 +85,9 @@ def products_by_category(request, category_name):
     
     return render(request, 'giftweb/products_by_category.html', context)
 
+    
+def logpage(request):
+    return render(request, "core/logpage.html", {})  
 
 
 def search_courier(request):
