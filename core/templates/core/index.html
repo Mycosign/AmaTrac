@@ -7,14 +7,46 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Track your Amazon shipments and deliveries effortlessly with our advanced parcel tracking solutions. Stay updated with real-time information from DHL, FedEx, and more.">
+    <meta name="keywords" content="Amazon shipment, parcel tracking, delivery tracking, DHL, FedEx, shipment status, delivery updates">
+    <meta name="author" content="AmazonTracks Team">
+    <meta name="robots" content="index, follow">
+
+    <!-- Canonical Link -->
+    <link rel="canonical" href="https://www.amazontracks.online/">
+
+    <!-- Open Graph Meta Tags for Social Media -->
+    <meta property="og:title" content="AmazonTracks - Shipment and Delivery Tracking">
+    <meta property="og:description" content="Efficiently track your Amazon shipments and deliveries. Get real-time updates on parcels with our advanced tracking solutions for DHL, FedEx, and other major carriers.">
+    <meta property="og:image" content="https://res.cloudinary.com/dsbfohkyg/image/upload/v1725210354/asa_da6oua.png">
+    <meta property="og:url" content="https://www.amazontracks.online/">
+    <meta property="og:type" content="website">
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="AmazonTracks - Shipment and Delivery Tracking">
+    <meta name="twitter:description" content="Track your Amazon shipments and deliveries effortlessly. Real-time updates from DHL, FedEx, and more.">
+    <meta name="twitter:image" content="https://res.cloudinary.com/dsbfohkyg/image/upload/v1725210354/asa_da6oua.png">
+    <meta name="twitter:site" content="@AmazonDelivery">
+
+    <!-- Stylesheets -->
     <link rel="stylesheet" href="{% static 'assetz/css/bootstrap.css' %}">
     <link rel="stylesheet" href="{% static 'assetz/css/all.css' %}">
     <link rel="stylesheet" href="{% static 'assetz/css/owl.carousel.min.css' %}">
     <link rel="stylesheet" href="{% static 'assetz/css/owl.theme.default.min.css' %}">
     <link rel="stylesheet" href="{% static 'assetz/css/style.css' %}">
-    <title>AmazonTracks</title>
 
-    <link rel="shortcut icon" type="image/x-icon" href="https://res.cloudinary.com/dx36ar8eb/image/upload/v1703649601/amaz2_cczkzm.png">
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="https://res.cloudinary.com/dsbfohkyg/image/upload/v1725210354/asa_da6oua.png">
+
+    <title>AmazonTracks - Shipment and Delivery Tracking</title>
+</head>
+
+<body>
+<header>
+
 <!-- Smartsupp Live Chat script -->
 <script type="text/javascript">
 var _smartsupp = _smartsupp || {};
@@ -27,10 +59,6 @@ window.smartsupp||(function(d) {
 })(document);
 </script>
 <noscript> Powered by <a href=“https://www.smartsupp.com” target=“_blank”>Smartsupp</a></noscript>
-</head>
-<body>
-<header>
-
     <section class="bg-dark py-2 position-relative">
         <div class="container">
             <div class="row">
@@ -76,35 +104,12 @@ window.smartsupp||(function(d) {
                         
                 </div>
                 <ul class="navbar-nav">
-                    <img style="max-width:60px;"  src="https://res.cloudinary.com/dx36ar8eb/image/upload/v1703649601/amaz2_cczkzm.png">
+                    <img style="max-width:60px;"  src="https://res.cloudinary.com/dsbfohkyg/image/upload/v1725210005/qqq-removebg-preview_c0gzbt.png">
                 </ul>
             </div>
         </nav>
     </section>
 </header>
-<!--//banner section-->
-<section class="banner-section" >
-    <div class="container-fluid bg-black h-100 bg-opacity-75">
-        <div class="row">
-            <div class="col-md-8 mx-auto">
-                <form  method="GET" action="{% url 'core:search_courier' %}">
-                    <div class="card card-body top-50 text-center bg-transparent border-0">
-                        <h3 class="text-color fw-bold display-6">Safe & Faster</h3>
-                        <h1 class="fw-bold text-white display-2 mb-4">Logistics service</h1>
-                        <div class="input-group">
-                            <input type="text" name="tracking_id" placeholder="Enter Tracking ID" class="form-control form-control-lg rounded-0" style="width: 100%; padding: 15px; border: 2px solid #3498db; border-radius: 25px; font-size: 16px; font-weight: bold; color: #333; background-color: #ecf0f1; transition: border-color 0.3s, background-color 0.3s; box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1); outline: none;">
-                            <button type="submit" class="btn text-white bg-color rounded-0">Track & trace</button>
-                        </div>
-                        <br>
-                        <br>
-                <div style="color: white; background-color: " id="google_translate_element2"></div>
-                    <script type="text/javascript">
-                        // <![CDATA[
-                        function googleTranslateElementInit() {
-                            new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
-                        }
-                        // ]]>
-                    </script>
 
                     <script type="text/javascript">
                         function googleTranslateElementInit2() {
@@ -126,352 +131,338 @@ window.smartsupp||(function(d) {
                             $('.selectpicker').selectpicker();
                         });
                     </script>
-
-                    <style>
-                    /* Hide the Google Translate iframe */
-                    iframe.VIpgJd-ZVi9od-ORHb-OEVmcd {
-                        display: none !important;
-                    }
-
-                    /* Hide the Google Translate banner */
-                    .goog-te-banner-frame.skiptranslate {
-                        display: none !important;
-                    }
-
-                    /* Hide the Google Translate widget */
-                    body {
-                        top: 0px !important;
-                    }
-                    </style>
-<style>
-    .sidebar-inner {
-        height: 100%; /* Set the height to 100% of its container */
-        overflow-y: auto; /* Enable vertical scrolling */
-        scrollbar-width: thin; /* For Firefox */
-        scrollbar-color: transparent transparent; /* For Firefox */
-    }
-
-    /* For WebKit browsers (Chrome, Safari) */
-    .sidebar-inner::-webkit-scrollbar {
-        width: 6px; /* Set the width of the scrollbar */
-        scrollbar-color: transparent transparent; /* For Firefox */
-
-    }
-
-    .sidebar-inner::-webkit-scrollbar-thumb {
-        background-color: transparent; /* Set the color of the scrollbar thumb */
-    }
-</style>
-
-                        
-{% if couriers %}
-    <div class="scroll-message">
-        <h2 class="animated-header">
-            Scroll Down to See Results
-            <i class="fas fa-thumbs-up"></i>
-        </h2>
-        <div class="wave"></div>
-    </div>
-    <div class="courier-results">
-        {% for courier in couriers %}
-            <!-- Add your courier result rendering here -->
-        {% endfor %}
-    </div>
-{% elif couriers %}
-    <h2>No Results Found</h2>
-{% endif %}
-
-<style>
-    /* Add your CSS styles for the scroll message and animation */
-    .scroll-message {
-        text-align: center;
-        margin-top: 20px;
-        background-color: #ff5733; /* Vibrant background color */
-        padding: 10px;
-        position: relative;
-    }
-
-    .animated-header {
-        font-size: 24px;
-        color: #fff; /* White text color for contrast */
-        animation: slideIn 1s ease-in-out infinite alternate;
-    }
-
-    .wave {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        height: 20px;
-        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.7), transparent);
-        background-size: 200% 100%;
-        animation: waveAnimation 2s infinite linear;
-    }
-
-    @keyframes slideIn {
-        0% {
-            transform: translateY(-10px);
-            opacity: 0.5;
-        }
-        100% {
-            transform: translateY(0);
-            opacity: 1;
-        }
-    }
-
-    @keyframes waveAnimation {
-        0% {
-            background-position: 0 0;
-        }
-        100% {
-            background-position: -200% 0;
-        }
-    }
-
-    .no-results {
-        text-align: center;
-        margin-top: 20px;
-        background-color: #e74c3c; /* Vibrant background color for no results */
-        padding: 10px;
-    }
-
-    .no-results h2 {
-        font-size: 24px;
-        color: #fff; /* White text color for contrast */
-    }
-</style>
-
-                    </div>
-                </form>
+<!-- Enhanced Banner Section -->
+<section class="banner-section py-5">
+  <div class="container bg-gradient rounded shadow-lg py-5">
+    <div class="row justify-content-center">
+      <div class="col-lg-8 col-md-10">
+        <form method="GET" action="{% url 'core:search_courier' %}">
+          <div class="card card-body text-center bg-transparent border-0 mt-5">
+            <h3 class="text-highlight fw-bold display-6">Safe & Faster</h3>
+            <h1 class="fw-bold text-white display-3 mb-4">Logistics Service</h1>
+            <div class="input-group search-input-group mb-4">
+              <input style="width: 100%;" type="text" name="tracking_id" placeholder="Enter Tracking ID" class="form-control form-control-lg search-input">
+              <button type="submit" class="btn btn-primary btn-lg search-button">Track & Trace</button>
             </div>
-        </div>
+            <!-- Google Translate Section -->
+            <div id="google_translate_element2" class="mt-3"></div>
+            <script type="text/javascript">
+              function googleTranslateElementInit() {
+                new google.translate.TranslateElement({ pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE }, 'google_translate_element2');
+              }
+            </script>
+          </div>
+        </form>
+      </div>
     </div>
-
-
-
-
-
-        <style>
-            /* ... Your existing styles ... */
-
-            /* ... Your existing styles ... */
-            
-            /* Styling for the refresh button */
-            .refresh-button-container {
-                margin-top: 20px;
-                display: flex;
-                justify-content: center;
-            }
-
-            .refresh-button {
-                background-color: #007bff;
-                color: #fff;
-                border: none;
-                border-radius: 4px;
-                padding: 10px 20px;
-                cursor: pointer;
-                transition: background-color 0.2s ease-in-out;
-            }
-
-            .refresh-button:hover {
-                background-color: #0056b3;
-            }
-            .select2-container--default .select2-selection--single::after {
-                content: "\f0d7"; /* Unicode character for the dropdown icon */
-                font-family: "Font Awesome 5 Free";
-                font-weight: 900;
-                right: 10px;
-                top: 50%;
-                transform: translateY(-50%);
-                position: absolute;
-                pointer-events: none;
-            }
-            .result {
-                border: 1px solid #ccc;
-                padding: 15px;
-                margin-bottom: 30px;
-                background-color: #f9f9f9;
-                border-radius: 8px;
-            }
-
-            .result-heading {
-                text-align: center;
-                margin-bottom: 10px;
-            }
-
-            .result-details {
-                display: grid;
-                gap: 20px;
-            }
-
-            .result-details p {
-                margin: 0;
-            }
-
-            .result-details iframe {
-                width: 100%;
-                height: 200px;
-                border: none;
-            }
-
-            .result-details img {
-                max-width: 100%;
-                height: auto;
-                border: 1px solid #ccc;
-                border-radius: 4px;
-            }            .copy-link-container {
-                margin-top: 20px;
-                display: flex;
-                align-items: center;
-            }
-
-            .copy-link-input {
-                flex: 1;
-                margin-right: 10px;
-            }
-
-            .copy-link-button {
-                background-color: #007bff;
-                color: #fff;
-                border: none;
-                border-radius: 4px;
-                padding: 5px 10px;
-                cursor: pointer;
-                transition: background-color 0.2s ease-in-out;
-            }
-
-            .copy-link-button:hover {
-                background-color: #0056b3;
-            }
-            .result {
-                /* ... Your styles ... */
-                /* Add more styles to make it look like a paper receipt */
-                background-color: white;
-                border: 1px solid #e0e0e0;
-                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            }
-            /* Styling for the receipt-like result */
-            .result {
-                /* ... Your styles ... */
-                /* Add more styles to make it look like a paper receipt */
-                background-color: white;
-                border: 1px solid #e0e0e0;
-                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-                padding: 30px;
-                border-radius: 8px;
-            }
-
-            .result-heading {
-                text-align: center;
-                margin-bottom: 20px;
-            }
-
-            .result-details {
-                display: grid;
-                gap: 20px;
-            }
-
-            .result-details p {
-                margin: 0;
-            }
-
-            .result-details iframe {
-                width: 100%;
-                height: 200px;
-                border: none;
-            }
-
-            .result-details img {
-                max-width: 100%;
-                height: auto;
-                border: 1px solid #ccc;
-                border-radius: 4px;
-            }
-            .tracking-input:focus {
-                border-color: #1abc9c;
-                background-color: #f5f5f5;
-                box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Enhanced box shadow on focus */
-            }
-
-            /* ... Rest of your styles ... */
-        </style>
-
-
-
-
-
+  </div>
 </section>
 
+{% if couriers %}
+<!-- Scrolling Prompt Section -->
+<div class="scroll-message my-5">
+  <h2 class="animated-header">
+    Scroll Down to See Results
+    <i class="fas fa-long-arrow-alt-down"></i>
 
-<div class="refresh-button-container">
-    <a href="{% url 'home' %}" class="refresh-button">
-        <i class="fas fa-sync-alt"></i> Click to Refresh
-    </a>
+  </h2>
+  <div class="wave"></div>
 </div>
 
-            {% if couriers %}
-                {% for courier in couriers %}
-<section class="bg-light" id="get_a_quote">
-    <div  class="container">
-        <div class="">
-            <div class="col-md-7 py-5">
-                <div class="card card-body h-100 border-0 bg-transparent">
-                    <h6 class="fw-bold text-color">Your Package</h6>
-                    <div class="result">
-                        <div class="result-heading">
-                            <h3>Receipt</h3>
-                            <p><strong><i class="fas fa-barcode"></i> Tracking ID:</strong> {{ courier.tracking_id }}</p>
-                            <p><strong><i class="fas fa-shipping-fast"></i> Courier Service:</strong> {{ courier.get_service_display }}</p>
-                        </div>
-                        <div class="result-details">
-                            <p><strong><em class="fas fa-user"></em> Name:</strong> {{ courier.name }}</p>
-                            <p><strong><i class="fas fa-user"></i> Sender:</strong> {{ courier.sender }}</p>
-                            <p><strong><i class="fas fa-user"></i> Receiver:</strong> {{ courier.reciever }}</p>
-                            <p><strong><i class="fas fa-phone"></i> Contact Info:</strong> {{ courier.contact_info }}</p>
-                            <p><strong><i class="fas fa-map-marker-alt"></i>Shipping Address:</strong> {{ courier.address }}</p>
-                            <p><strong><i class="fas fa-box"></i> Quantity:</strong> {{ courier.quantity }}</p>
-                            <p><strong><i class="fas fa-calendar"></i>Order Date:</strong> {{ courier.date_sent }}</p>
-                            <p><strong><i class="fas fa-calendar-alt"></i> Ship Date:</strong> {{ courier.date_arrival }}</p>
-                            <p><strong><i class="fas fa-map-marked-alt"></i> Current Location:</strong> {{ courier.current_location }}</p>
-                            <p><strong><i class="fas fa-map-pin"></i> Map Location:</strong></p>
-                            <iframe width="100%" height="300" frameborder="0" style="border:0" src="{{ courier.map_location }}" allowfullscreen></iframe>
-                            <p><strong><i class="fas fa-user"></i> PACKAGE IMAGE:</strong></p>
-                            <img src="{{ courier.avatar.url }}" alt="Avatar">
-                            <p><strong><i class="fas fa-id-card"></i> Photo ID:</strong></p>
-                            <img src="{{ courier.photo_id.url }}" alt="Photo ID">
-                        </div>
-                        <div class="copy-link-container">
-                            <input class="copy-link-input" type="text" value="{{ request.build_absolute_uri }}" readonly>
-                            <button class="copy-link-button" onclick="copyLink(this)">
-                                <i class="fas fa-copy"></i> Copy Link
-                            </button>
+<div class="courier-results container mb-5">
+  {% for courier in couriers %}
+  <!-- Courier Result Rendering -->
+  <div class="result shadow-lg p-4 mb-5 bg-white rounded">
+    <div class="result-heading text-center mb-4">
+      <h3 class="receipt-title display-4 mb-3"><i class="fas fa-receipt"></i> Receipt</h3>
+      <img src="https://res.cloudinary.com/dsbfohkyg/image/upload/v1725209292/amazon-shipping-dark._V533049204__cbgxzx.png" alt="Footer Logo" class="footer-logo">
+      <p class="text-muted"><strong><i class="fas fa-barcode"></i> Tracking ID:</strong> {{ courier.tracking_id }}</p>
 
-                        <script>
-                            function copyLink(button) {
-                                const input = button.previousElementSibling;
-                                input.select();
-                                document.execCommand("copy");
-                                button.textContent = "Copied!";
-                                button.disabled = true;
-                                setTimeout(() => {
-                                    button.textContent = "Copy Link";
-                                    button.disabled = false;
-                                }, 2000);
-                            }
-                        </script>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </div>
+      <p class="text-muted"><strong><i class="fas fa-shipping-fast"></i> Courier Service:</strong> {{ courier.get_service_display }}</p>
     </div>
-</section>
-                {% endfor %}
-            {% elif form.is_valid %}
-    <h2>No Results Found</h2>
+    <div class="result-details row align-items-start mb-4">
+      <!-- Left Column: Details -->
+      <div class="col-lg-6 col-md-12 mb-4">
+    
+
+        <p><strong><em class="fas fa-user"></em> Name:</strong> {{ courier.name }}</p>
+        <p><strong><i class="fas fa-user-tie"></i> Sender:</strong> {{ courier.sender }}</p>
+        <p><strong><i class="fas fa-user-check"></i> Receiver:</strong> {{ courier.receiver }}</p>
+        <p><strong><i class="fas fa-phone-alt"></i> Contact Info:</strong> {{ courier.contact_info }}</p>
+        <p><strong><i class="fas fa-map-marked-alt"></i> Shipping Address:</strong> {{ courier.address }}</p>
+      </div>
+      <!-- Right Column: Dates and Location -->
+      <div class="col-lg-6 col-md-12 mb-4">
+        <p><strong><i class="fas fa-box-open"></i> Quantity:</strong> {{ courier.quantity }}</p>
+        <p><strong><i class="fas fa-calendar-day"></i> Order Date:</strong> {{ courier.date_sent }}</p>
+        <p><strong><i class="fas fa-calendar-check"></i> Ship Date:</strong> {{ courier.date_arrival }}</p>
+        <p><strong><i class="fas fa-map-marker-alt"></i> Current Location:</strong> {{ courier.current_location }}</p>
+        <iframe src="{{ courier.map_location }}" allowfullscreen class="map-frame"></iframe>
+      </div>
+    </div>
+    <!-- Image Section -->
+    <div class="images-container d-flex justify-content-center align-items-center mb-4">
+      <div class="text-center mx-3">
+        <p><strong><i class="fas fa-box"></i> Package Image:</strong></p>
+        <img src="{{ courier.avatar.url }}" alt="Package Image" class="img-fluid image-fixed-size">
+      </div>
+      <div class="text-center mx-3">
+        <p><strong><i class="fas fa-id-card-alt"></i> Photo ID:</strong></p>
+        <img src="{{ courier.photo_id.url }}" alt="Photo ID" class="img-fluid image-fixed-size">
+      </div>
+    </div>
+    <!-- Copy Link Button -->
+    <div class="copy-link-container text-center mt-4">
+      <input class="copy-link-input form-control d-inline-block w-auto" type="text" value="{{ request.build_absolute_uri }}" readonly>
+      <button class="copy-link-button btn btn-outline-primary ml-2" onclick="copyLink(this)">
+        <i class="fas fa-copy"></i> Copy Link
+      </button>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{% else %}
+<h2 class="no-results text-center mt-5"><i class="fas fa-exclamation-circle"></i> No Results Found</h2>
 {% endif %}
-        </div>
+
+<div class="refresh-button-container text-center mt-4 mb-5">
+  <a href="{% url 'home' %}" class="refresh-button btn btn-secondary btn-lg">
+    <i class="fas fa-sync-alt"></i> Click to Refresh
+  </a>
+</div>
+
+<!-- Enhanced God Mode Styles -->
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: #f0f2f5;
+  }
+
+  .bg-gradient {
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+    color: #fff;
+  }
+
+  .search-input-group {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .search-input {
+    padding: 15px;
+    border: 2px solid #007bff;
+    border-radius: 50px 0 0 50px;
+    font-size: 18px;
+    color: #333;
+    background-color: #fff;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    outline: none;
+  }
+
+  .search-button {
+    background-color: #007bff;
+    border: none;
+    border-radius: 0 50px 50px 0;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 10px 30px;
+    color: #fff;
+    cursor: pointer;
+  }
+
+  .scroll-message {
+    text-align: center;
+    margin-top: 20px;
+    background-color: #ff5733;
+    padding: 10px;
+    position: relative;
+    z-index: 10;
+    border-radius: 8px;
+  }
+
+  .animated-header {
+    font-size: 24px;
+    color: #fff;
+    animation: slideIn 1s ease-in-out infinite alternate;
+  }
+
+  .wave {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 20px;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.7), transparent);
+    background-size: 200% 100%;
+    animation: waveAnimation 2s infinite linear;
+  }
+
+  @keyframes slideIn {
+    0% {
+      transform: translateY(-10px);
+      opacity: 0.5;
+    }
+
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  @keyframes waveAnimation {
+    0% {
+      background-position: 0 0;
+    }
+
+    100% {
+      background-position: -200% 0;
+    }
+  }
+
+  .result {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    border-radius: 8px;
+    margin-top: 20px;
+    position: relative;
+    z-index: 5;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+
+  .result:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+
+  .map-frame {
+    border: none;
+    width: 100%;
+    height: 250px;
+    border-radius: 8px;
+  }
+
+  .images-container {
+    gap: 20px;
+  }
+
+  .image-fixed-size {
+    max-width: 200px;
+    height: auto;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+  }
+
+  .copy-link-container {
+    margin-top: 20px;
+  }
+
+  .copy-link-input {
+    font-size: 16px;
+    border: 2px solid #007bff;
+    border-radius: 8px;
+    padding: 10px;
+  }
+
+  .copy-link-button {
+    font-size: 16px;
+    padding: 10px 20px;
+    border-radius: 8px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+
+  .copy-link-button:hover {
+    background-color: #0056b3;
+  }
+
+  .refresh-button-container {
+    margin-top: 40px;
+  }
+
+  .refresh-button {
+    font-size: 18px;
+    padding: 12px 25px;
+    border-radius: 50px;
+    background-color: #28a745;
+    color: #fff;
+    text-decoration: none;
+    display: inline-block;
+    transition: background-color 0.3s;
+  }
+
+  .refresh-button:hover {
+    background-color: #218838;
+  }
+
+  .no-results {
+    font-size: 24px;
+    color: #dc3545;
+  }
+    /* Footer Section */
+    .footer {
+        background-color: #343a40;
+        padding: 20px;
+    }
+
+    .footer-logo {
+        max-width: 100px;
+        height: auto;
+    }
+
+
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .search-input-group {
+      flex-direction: column;
+    }
+
+    .search-input {
+      border-radius: 8px;
+    }
+
+    .search-button {
+      border-radius: 8px;
+      margin-top: 10px;
+    }
+
+    .result {
+      padding: 20px;
+    }
+
+    .images-container {
+      flex-direction: column;
+    }
+
+    .image-fixed-size {
+      max-width: 100%;
+      height: auto;
+    }
+
+    .map-frame {
+      height: 200px;
+    }
+  }
+</style>
+
+
+
+<script>
+  function copyLink(button) {
+    var input = button.previousElementSibling;
+    input.select();
+    document.execCommand("copy");
+    button.textContent = 'Copied!';
+    setTimeout(() => button.innerHTML = '<i class="fas fa-copy"></i> Copy Link', 2000);
+  }
+</script>
+
 
 <!--about us-->
 <!--about us-->
@@ -502,7 +493,7 @@ window.smartsupp||(function(d) {
                 <source src="{% static 'logi.mp4' %}" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
-            <img src="https://res.cloudinary.com/dx36ar8eb/image/upload/v1703649601/amaz2_cczkzm.png" alt="Logo" class="logo">
+            <img src="https://res.cloudinary.com/dsbfohkyg/image/upload/v1725209292/amazon-shipping-dark._V533049204__cbgxzx.png" alt="Logo" class="logo">
         </div>
     </div>
 </div>
@@ -641,7 +632,7 @@ window.smartsupp||(function(d) {
             <div class="col-md-4 ps-5">
                 <h3 class="text-color fw-bold pb-3">Get In Touch</h3>
                 <p class="fw-bold text-white"><i class="fa fa-map-marker-alt me-2"></i> New York, USA</p>
-                <p class="fw-bold text-white"><i class="fa fa-phone-alt me-2"></i>+012 345 67890</p>
+                <p class="fw-bold text-white"><i class="fa fa-phone-alt me-2"></i>+0160184522</p>
                 <p class="fw-bold text-white"><i class="fa fa-envelope me-2"></i>info@amazontracks.online</p>
                 <div class="border-0 m-0 p-0">
                     <ul class="nav p-0  border-0">
