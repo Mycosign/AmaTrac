@@ -7,48 +7,40 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-
     <!-- SEO Meta Tags -->
-    <meta name="description" content="Track your Amazon shipments and deliveries effortlessly with our advanced parcel tracking solutions. Stay updated with real-time information from DHL, FedEx, and more.">
+    <meta name="description" content="Track your Tech-Delivery shipments and deliveries effortlessly with our advanced parcel tracking solutions. Stay updated with real-time information from DHL, FedEx, and more.">
     <meta name="keywords" content="Amazon shipment, parcel tracking, delivery tracking, DHL, FedEx, shipment status, delivery updates">
-    <meta name="author" content="AmazonTracks Team">
+    <meta name="author" content="Tech-Delivery Team">
     <meta name="robots" content="index, follow">
-
     <!-- Canonical Link -->
-    <link rel="canonical" href="https://www.techdelivery.store/">
-
+    <link rel="canonical" href="{{ request.build_absolute_uri }}">
     <!-- Open Graph Meta Tags for Social Media -->
-    <meta property="og:title" content="AmazonTracks - Shipment and Delivery Tracking">
-    <meta property="og:description" content="Efficiently track your Amazon shipments and deliveries. Get real-time updates on parcels with our advanced tracking solutions for DHL, FedEx, and other major carriers.">
-    <meta property="og:image" content="https://res.cloudinary.com/dsbfohkyg/image/upload/v1725210354/asa_da6oua.png">
-    <meta property="og:url" content="https://www.techdelivery.store/">
+    <meta property="og:title" content="{% if courier %}Tracking: {{ courier.tracking_id }}{% else %}Tech-Delivery - Shipment and Delivery Tracking{% endif %}">
+    <meta property="og:description" content="{% if courier %}Tracking shipment for {{ courier.name }} - Current Location: {{ courier.current_location }}{% else %}Track your shipments and deliveries effortlessly. Real-time updates from DHL, FedEx, and more.{% endif %}">
+    <meta property="og:image" content="{% if courier %}{{ courier.avatar.url }}{% else %}https://res.cloudinary.com/dsbfohkyg/image/upload/v1725210354/asa_da6oua.png{% endif %}">
+    <meta property="og:url" content="{{ request.build_absolute_uri }}">
     <meta property="og:type" content="website">
-    <meta property="og:site_name" content="AmazonTracks">
-
+    <meta property="og:site_name" content="Tech-Delivery">
     <!-- Twitter Card Meta Tags -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="AmazonTracks - Shipment and Delivery Tracking">
-    <meta name="twitter:description" content="Track your Amazon shipments and deliveries effortlessly. Real-time updates from DHL, FedEx, and more.">
-    <meta name="twitter:image" content="https://res.cloudinary.com/dsbfohkyg/image/upload/v1725210354/asa_da6oua.png">
+    <meta name="twitter:title" content="{% if courier %}Tracking: {{ courier.tracking_id }}{% else %}Tech-Delivery - Shipment and Delivery Tracking{% endif %}">
+    <meta name="twitter:description" content="{% if courier %}Tracking shipment for {{ courier.name }} - Current Location: {{ courier.current_location }}{% else %}Track your shipments and deliveries effortlessly. Real-time updates from DHL, FedEx, and more.{% endif %}">
+    <meta name="twitter:image" content="{% if courier %}{{ courier.avatar.url }}{% else %}https://res.cloudinary.com/dsbfohkyg/image/upload/v1725210354/asa_da6oua.png{% endif %}">
     <meta name="twitter:site" content="@AmazonDelivery">
-
     <!-- WhatsApp Specific Enhancements -->
-    <meta property="og:image:alt" content="AmazonTracks logo and tracking visual">
+    <meta property="og:image:alt" content="{% if courier %}Package Image for Tracking {{ courier.tracking_id }}{% else %}Tech-Delivery logo and tracking visual{% endif %}">
     <meta property="og:image:type" content="image/png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
-
     <!-- Stylesheets -->
     <link rel="stylesheet" href="{% static 'assetz/css/bootstrap.css' %}">
     <link rel="stylesheet" href="{% static 'assetz/css/all.css' %}">
     <link rel="stylesheet" href="{% static 'assetz/css/owl.carousel.min.css' %}">
     <link rel="stylesheet" href="{% static 'assetz/css/owl.theme.default.min.css' %}">
     <link rel="stylesheet" href="{% static 'assetz/css/style.css' %}">
-
     <!-- Favicon -->
-    <link rel="shortcut icon" type="image/x-icon" href="https://res.cloudinary.com/dsbfohkyg/image/upload/v1725210354/asa_da6oua.png">
-
-    <title>AmazonTracks - Shipment and Delivery Tracking</title>
+    <link rel="shortcut icon" type="image/x-icon" href="{% if courier %}{{ courier.avatar.url }}{% else %}https://res.cloudinary.com/dsbfohkyg/image/upload/v1725210354/asa_da6oua.png{% endif %}">
+    <title>{% if courier %}Tracking: {{ courier.tracking_id }} - {% endif %}Tech-Delivery</title>
  <!-- Smartsupp Live Chat script -->
 <script type="text/javascript">
 var _smartsupp = _smartsupp || {};
@@ -534,7 +526,7 @@ window.addEventListener('resize', adjustWidgetPosition);
                         <div class="col-md-7"><div class="card-body pt-5">
     <h5 class="text-color fw-bold">About us</h5>
     <h3 class="fw-bold display-5">Trusted & Faster Logistic Service Provider</h3>
-    <p class="text-muted">At AmazonTracks, we're your trusted partner for efficient and reliable cargo management. With years of experience and cutting-edge technology, we simplify logistics, ensuring your shipments reach their destination seamlessly.</p>
+    <p class="text-muted">At Tech-Delivery, we're your trusted partner for efficient and reliable cargo management. With years of experience and cutting-edge technology, we simplify logistics, ensuring your shipments reach their destination seamlessly.</p>
     <a id="playButton" class="btn"><i class="fa-solid fa-circle-play display-3 text-color"></i></a>
     <span class="fw-bold h5">Play Video</span>
 </div>
@@ -706,7 +698,7 @@ window.addEventListener('resize', adjustWidgetPosition);
     <h3 class="text-color fw-bold pb-3">Newsletter</h3>
     <p class="fw-bold text-white pt-0">
         Get exclusive insights, offers, and logistics updates.
-        Subscribe to AmazonTracks's newsletter today for industry expertise delivered to your inbox.
+        Subscribe to Tech-Delivery's newsletter today for industry expertise delivered to your inbox.
     </p>
     <form id="emailForm"> <!-- Add ID to the form -->
         <div class="input-group">
@@ -732,7 +724,7 @@ window.addEventListener('resize', adjustWidgetPosition);
         <div class="row pb-5">
             <hr/>
             <div class="col-md-7 px-5">
-                <span class="float-start text-white ">© 2024 </span><span class="text-color float-start">AmazonTracks.</span><span class="fw-bold text-white float-start"> All Rights Reserved.  </span>
+                <span class="float-start text-white ">© 2024 </span><span class="text-color float-start">Tech-Delivery.</span><span class="fw-bold text-white float-start"> All Rights Reserved.  </span>
             </div>
 
         </div>
