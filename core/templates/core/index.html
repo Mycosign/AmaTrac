@@ -4,43 +4,76 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
     <!-- SEO Meta Tags -->
-    <meta name="description" content="Track your Tech-Delivery shipments and deliveries effortlessly with our advanced parcel tracking solutions. Stay updated with real-time information from DHL, FedEx, and more.">
-    <meta name="keywords" content="Amazon shipment, parcel tracking, delivery tracking, DHL, FedEx, shipment status, delivery updates">
+    <meta name="description" content="{% if courier %}Track shipment for {{ courier.name }} - Current Location: {{ courier.current_location }}{% else %}Track your Tech-Delivery shipments effortlessly with real-time updates from DHL, FedEx, and more.{% endif %}">
+    <meta name="keywords" content="{% if courier %}Tracking, {{ courier.tracking_id }}, {{ courier.get_service_display }}{% else %}Amazon shipment, parcel tracking, delivery tracking, DHL, FedEx, shipment status{% endif %}">
     <meta name="author" content="Tech-Delivery Team">
     <meta name="robots" content="index, follow">
-    <!-- WhatsApp and Open Graph Meta Tags -->
+
+    <!-- Open Graph (Social Media) Meta Tags -->
     <meta property="og:site_name" content="Tech-Delivery">
     <meta property="og:title" content="{% if courier %}Tracking: {{ courier.tracking_id }}{% else %}Tech-Delivery - Shipment and Delivery Tracking{% endif %}">
-    <meta property="og:description" content="{% if courier %}Tracking shipment for {{ courier.name }} - Current Location: {{ courier.current_location }}{% else %}Track your shipments and deliveries effortlessly. Real-time updates from DHL, FedEx, and more.{% endif %}">
+    <meta property="og:description" content="{% if courier %}Track shipment for {{ courier.name }} - Current Location: {{ courier.current_location }}{% else %}Track your shipments effortlessly with real-time updates from DHL, FedEx, and more.{% endif %}">
     <meta property="og:url" content="{{ request.build_absolute_uri }}">
     <meta property="og:type" content="website">
-    <!-- WhatsApp-specific image tags -->
-    <meta property="og:image:width" content="300">
-    <meta property="og:image:height" content="300">
     <meta property="og:image" content="{% if courier %}{{ courier.avatar.url }}{% else %}https://res.cloudinary.com/dsbfohkyg/image/upload/v1725210354/asa_da6oua.png{% endif %}">
     <meta property="og:image:secure_url" content="{% if courier %}{{ courier.avatar.url }}{% else %}https://res.cloudinary.com/dsbfohkyg/image/upload/v1725210354/asa_da6oua.png{% endif %}">
     <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="300">
+    <meta property="og:image:height" content="300">
     <meta property="og:image:alt" content="{% if courier %}Package Image for Tracking {{ courier.tracking_id }}{% else %}Tech-Delivery logo{% endif %}">
+
     <!-- Twitter Card Meta Tags -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="{% if courier %}Tracking: {{ courier.tracking_id }}{% else %}Tech-Delivery - Shipment and Delivery Tracking{% endif %}">
-    <meta name="twitter:description" content="{% if courier %}Tracking shipment for {{ courier.name }} - Current Location: {{ courier.current_location }}{% else %}Track your shipments and deliveries effortlessly. Real-time updates from DHL, FedEx, and more.{% endif %}">
+    <meta name="twitter:description" content="{% if courier %}Track shipment for {{ courier.name }} - Current Location: {{ courier.current_location }}{% else %}Track your shipments effortlessly with real-time updates from DHL, FedEx, and more.{% endif %}">
     <meta name="twitter:image" content="{% if courier %}{{ courier.avatar.url }}{% else %}https://res.cloudinary.com/dsbfohkyg/image/upload/v1725210354/asa_da6oua.png{% endif %}">
-    <meta name="twitter:site" content="@AmazonDelivery">
+    <meta name="twitter:site" content="@TechDelivery">
+
+    <!-- Structured Data for Search Engines (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "ParcelDelivery",
+        "provider": {
+            "@type": "Organization",
+            "name": "Tech-Delivery",
+            "url": "https://www.techdelivery.store/"
+        },
+        {% if courier %}
+        "trackingNumber": "{{ courier.tracking_id }}",
+        "itemShipped": {
+            "@type": "Product",
+            "name": "{{ courier.name }}",
+            "image": "{{ courier.avatar.url }}"
+        },
+        "originAddress": "{{ courier.sender }}",
+        "deliveryAddress": "{{ courier.address }}",
+        "hasDeliveryMethod": "{{ courier.get_service_display }}"
+        {% else %}
+        "name": "Tech-Delivery - Shipment and Delivery Tracking",
+        "description": "Effortlessly track shipments with real-time updates from DHL, FedEx, and more."
+        {% endif %}
+    }
+    </script>
+
     <!-- Stylesheets -->
     <link rel="stylesheet" href="{% static 'assetz/css/bootstrap.css' %}">
     <link rel="stylesheet" href="{% static 'assetz/css/all.css' %}">
     <link rel="stylesheet" href="{% static 'assetz/css/owl.carousel.min.css' %}">
     <link rel="stylesheet" href="{% static 'assetz/css/owl.theme.default.min.css' %}">
     <link rel="stylesheet" href="{% static 'assetz/css/style.css' %}">
+
     <!-- Favicon -->
     <link rel="shortcut icon" type="image/x-icon" href="{% if courier %}{{ courier.avatar.url }}{% else %}https://res.cloudinary.com/dsbfohkyg/image/upload/v1725210354/asa_da6oua.png{% endif %}">
-    <title>{% if courier %}Tracking: {{ courier.tracking_id }} - {% endif %}Tech-Delivery</title>
- <!-- Smartsupp Live Chat script -->
+
+    <!-- Dynamic Title -->
+    <title>{% if courier %}Tracking: {{ courier.tracking_id }}{% endif %}Tech-Delivery</title>
+
+
 <script type="text/javascript">
 var _smartsupp = _smartsupp || {};
 _smartsupp.key = '6500e194b31c7465d06ad8466a7c914fd98b99fb';
