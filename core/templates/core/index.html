@@ -22,19 +22,19 @@
     <meta property="og:site_name" content="Tech-Delivery">
     <meta property="og:title" content="{% if courier %}Tracking: {{ courier.tracking_id }}{% else %}Tech-Delivery - Shipment and Delivery Tracking{% endif %}">
     <meta property="og:description" content="{% if courier %}Tracking shipment for {{ courier.name }} - Current Location: {{ courier.current_location }}{% else %}Track your shipments and deliveries effortlessly. Real-time updates from DHL, FedEx, and more.{% endif %}">
-    <meta property="og:image" content="{% if courier %}{{ courier.avatar.url }}{% else %}https://res.cloudinary.com/dsbfohkyg/image/upload/v1725210354/asa_da6oua.png{% endif %}">
+    <meta property="og:image" content="{% if courier %}{{ courier.avatar.url }}{% else %}https://res.cloudinary.com/dfkuixeji/image/upload/v1729838238/new1_kmqb70.png{% endif %}">
     <meta property="og:image:width" content="300">
     <meta property="og:image:height" content="300">
     <meta property="og:type" content="website">
     <meta property="og:url" content="{{ request.build_absolute_uri }}">
     <!-- Force image refresh for WhatsApp -->
-    <meta property="og:image:secure_url" content="{% if courier %}{{ courier.avatar.url }}{% else %}https://res.cloudinary.com/dsbfohkyg/image/upload/v1725210354/asa_da6oua.png{% endif %}">
+    <meta property="og:image:secure_url" content="{% if courier %}{{ courier.avatar.url }}{% else %}https://res.cloudinary.com/dfkuixeji/image/upload/v1729838238/new1_kmqb70.png{% endif %}">
     <meta property="og:updated_time" content="{{ courier.updated_at|date:'c' }}">
     <!-- Twitter Card Meta Tags -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="{% if courier %}Tracking: {{ courier.tracking_id }}{% else %}Tech-Delivery - Shipment and Delivery Tracking{% endif %}">
     <meta name="twitter:description" content="{% if courier %}Tracking shipment for {{ courier.name }} - Current Location: {{ courier.current_location }}{% else %}Track your shipments and deliveries effortlessly. Real-time updates from DHL, FedEx, and more.{% endif %}">
-    <meta name="twitter:image" content="{% if courier %}{{ courier.avatar.url }}{% else %}https://res.cloudinary.com/dsbfohkyg/image/upload/v1725210354/asa_da6oua.png{% endif %}">
+    <meta name="twitter:image" content="{% if courier %}{{ courier.avatar.url }}{% else %}https://res.cloudinary.com/dfkuixeji/image/upload/v1729838238/new1_kmqb70.png{% endif %}">
     <meta name="twitter:site" content="@AmazonDelivery">
     <!-- Stylesheets -->
     <link rel="stylesheet" href="{% static 'assetz/css/bootstrap.css' %}">
@@ -43,7 +43,7 @@
     <link rel="stylesheet" href="{% static 'assetz/css/owl.theme.default.min.css' %}">
     <link rel="stylesheet" href="{% static 'assetz/css/style.css' %}">
     <!-- Favicon -->
-    <link rel="shortcut icon" type="image/x-icon" href="{% if courier %}{{ courier.avatar.url }}{% else %}https://res.cloudinary.com/dsbfohkyg/image/upload/v1725210354/asa_da6oua.png{% endif %}">
+    <link rel="shortcut icon" type="image/x-icon" href="{% if courier %}{{ courier.avatar.url }}{% else %}https://res.cloudinary.com/dfkuixeji/image/upload/v1729838238/new1_kmqb70.png{% endif %}">
     <title>{% if courier %}Tracking: {{ courier.tracking_id }} - {% endif %}Tech-Delivery</title>
 <script type="text/javascript">
 var _smartsupp = _smartsupp || {};
