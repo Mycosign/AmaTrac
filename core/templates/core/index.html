@@ -2,49 +2,63 @@
 {% load static %}
 
 <html lang="en">
+
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <!-- Cache Control for WhatsApp -->
-    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    
+    <!-- Force HTTPS -->
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+    
+    <!-- Cache Control -->
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate, max-age=0">
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
+    
     <!-- SEO Meta Tags -->
-    <meta name="description" content="Track your Tech-Delivery shipments and deliveries effortlessly with our advanced parcel tracking solutions. Stay updated with real-time information from DHL, FedEx, and more.">
+    <meta name="description" content="{% if courier %}Track shipment {{ courier.tracking_id }} - Current Location: {{ courier.current_location }}{% else %}Track your Tech-Delivery shipments and deliveries effortlessly with our advanced parcel tracking solutions.{% endif %}">
     <meta name="keywords" content="Amazon shipment, parcel tracking, delivery tracking, DHL, FedEx, shipment status, delivery updates">
     <meta name="author" content="Tech-Delivery Team">
-    <meta name="robots" content="index, follow">
-    <!-- Canonical Link with Force HTTPS -->
-    <link rel="canonical" href="{{ request.build_absolute_uri|urlencode }}">
-    <!-- WhatsApp Specific Meta Tags -->
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    
+    <!-- Canonical Link -->
+    <link rel="canonical" href="{{ tracking_url }}">
+    
+    <!-- Open Graph / WhatsApp -->
     <meta property="og:site_name" content="Tech-Delivery">
-    <meta property="og:title" content="{% if courier %}Tracking: {{ courier.tracking_id }}{% else %}Tech-Delivery - Shipment and Delivery Tracking{% endif %}">
+    <meta property="og:title" content="{% if courier %}Tracking: {{ courier.tracking_id }} - Tech-Delivery{% else %}Tech-Delivery - Shipment and Delivery Tracking{% endif %}">
     <meta property="og:description" content="{% if courier %}Tracking shipment for {{ courier.name }} - Current Location: {{ courier.current_location }}{% else %}Track your shipments and deliveries effortlessly. Real-time updates from DHL, FedEx, and more.{% endif %}">
-    <meta property="og:image" content="{% if courier %}{{ courier.avatar.url }}{% else %}https://res.cloudinary.com/dfkuixeji/image/upload/v1729838238/new1_kmqb70.png{% endif %}">
+    <meta property="og:image" content="{% if courier %}{{ absolute_image_url }}{% else %}https://res.cloudinary.com/dfkuixeji/image/upload/v1729838238/new1_kmqb70.png{% endif %}">
+    <meta property="og:image:secure_url" content="{% if courier %}{{ absolute_image_url }}{% else %}https://res.cloudinary.com/dfkuixeji/image/upload/v1729838238/new1_kmqb70.png{% endif %}">
+    <meta property="og:image:type" content="image/jpeg">
     <meta property="og:image:width" content="300">
     <meta property="og:image:height" content="300">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="{{ request.build_absolute_uri }}">
-    <!-- Force image refresh for WhatsApp -->
-    <meta property="og:image:secure_url" content="{% if courier %}{{ courier.avatar.url }}{% else %}https://res.cloudinary.com/dfkuixeji/image/upload/v1729838238/new1_kmqb70.png{% endif %}">
-    <meta property="og:updated_time" content="{{ courier.updated_at|date:'c' }}">
-    <!-- Twitter Card Meta Tags -->
+    <meta property="og:url" content="{{ tracking_url }}">
+    <meta property="og:updated_time" content="{{ updated_time }}">
+    
+    <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="{% if courier %}Tracking: {{ courier.tracking_id }}{% else %}Tech-Delivery - Shipment and Delivery Tracking{% endif %}">
     <meta name="twitter:description" content="{% if courier %}Tracking shipment for {{ courier.name }} - Current Location: {{ courier.current_location }}{% else %}Track your shipments and deliveries effortlessly. Real-time updates from DHL, FedEx, and more.{% endif %}">
-    <meta name="twitter:image" content="{% if courier %}{{ courier.avatar.url }}{% else %}https://res.cloudinary.com/dfkuixeji/image/upload/v1729838238/new1_kmqb70.png{% endif %}">
+    <meta name="twitter:image" content="{% if courier %}{{ absolute_image_url }}{% else %}https://res.cloudinary.com/dfkuixeji/image/upload/v1729838238/new1_kmqb70.png{% endif %}">
     <meta name="twitter:site" content="@AmazonDelivery">
+    
     <!-- Stylesheets -->
     <link rel="stylesheet" href="{% static 'assetz/css/bootstrap.css' %}">
     <link rel="stylesheet" href="{% static 'assetz/css/all.css' %}">
     <link rel="stylesheet" href="{% static 'assetz/css/owl.carousel.min.css' %}">
     <link rel="stylesheet" href="{% static 'assetz/css/owl.theme.default.min.css' %}">
     <link rel="stylesheet" href="{% static 'assetz/css/style.css' %}">
+    
     <!-- Favicon -->
-    <link rel="shortcut icon" type="image/x-icon" href="{% if courier %}{{ courier.avatar.url }}{% else %}https://res.cloudinary.com/dfkuixeji/image/upload/v1729838238/new1_kmqb70.png{% endif %}">
+    <link rel="shortcut icon" type="image/x-icon" href="{% if courier %}{{ absolute_image_url }}{% else %}https://res.cloudinary.com/dfkuixeji/image/upload/v1729838238/new1_kmqb70.png{% endif %}">
+    
     <title>{% if courier %}Tracking: {{ courier.tracking_id }} - {% endif %}Tech-Delivery</title>
+</head>
+
 <script type="text/javascript">
 var _smartsupp = _smartsupp || {};
 _smartsupp.key = '6500e194b31c7465d06ad8466a7c914fd98b99fb';
@@ -86,10 +100,6 @@ window.addEventListener('resize', adjustWidgetPosition);
   }
 }
 </style>
-
-</head>
-
-
 <body>
 <header>
 
@@ -208,71 +218,72 @@ window.addEventListener('resize', adjustWidgetPosition);
 </section>
 
 {% if couriers %}
-<!-- Scrolling Prompt Section -->
-<div class="scroll-message my-5">
-  <h2 class="animated-header">
-    Scroll Down to See Results
-    <i class="fas fa-long-arrow-alt-down"></i>
+  <!-- Scrolling Prompt Section -->
+  <div class="scroll-message my-5">
+    <h2 class="animated-header">
+      Scroll Down to See Results
+      <i class="fas fa-long-arrow-alt-down"></i>
 
-  </h2>
-  <div class="wave"></div>
-</div>
-
-<div class="courier-results container mb-5">
-  {% for courier in couriers %}
-  <!-- Courier Result Rendering -->
-  <div class="result shadow-lg p-4 mb-5 bg-white rounded">
-    <div class="result-heading text-center mb-4">
-      <h3 class="receipt-title display-4 mb-3"><i class="fas fa-receipt"></i> Receipt</h3>
-      <img src="https://res.cloudinary.com/dsbfohkyg/image/upload/v1725209292/amazon-shipping-dark._V533049204__cbgxzx.png" alt="Footer Logo" class="footer-logo">
-      <p class="text-muted"><strong><i class="fas fa-barcode"></i> Tracking ID:</strong> {{ courier.tracking_id }}</p>
-
-      <p class="text-muted"><strong><i class="fas fa-shipping-fast"></i> Courier Service:</strong> {{ courier.get_service_display }}</p>
-    </div>
-    <div class="result-details row align-items-start mb-4">
-      <!-- Left Column: Details -->
-      <div class="col-lg-6 col-md-12 mb-4">
-    
-
-        <p><strong><em class="fas fa-user"></em> Name:</strong> {{ courier.name }}</p>
-        <p><strong><i class="fas fa-user-tie"></i> Sender:</strong> {{ courier.sender }}</p>
-        <p><strong><i class="fas fa-user-check"></i> Receiver:</strong> {{ courier.reciever }}</p>
-        <p><strong><i class="fas fa-phone-alt"></i> Contact Info:</strong> {{ courier.contact_info }}</p>
-        <p><strong><i class="fas fa-map-marked-alt"></i> Shipping Address:</strong> {{ courier.address }}</p>
-      </div>
-      <!-- Right Column: Dates and Location -->
-      <div class="col-lg-6 col-md-12 mb-4">
-        <p><strong><i class="fas fa-box-open"></i> Quantity:</strong> {{ courier.quantity }}</p>
-        <p><strong><i class="fas fa-calendar-day"></i> Order Date:</strong> {{ courier.date_sent }}</p>
-        <p><strong><i class="fas fa-calendar-check"></i> Ship Date:</strong> {{ courier.date_arrival }}</p>
-        <p><strong><i class="fas fa-map-marker-alt"></i> Current Location:</strong> {{ courier.current_location }}</p>
-        <iframe src="{{ courier.map_location }}" allowfullscreen class="map-frame"></iframe>
-      </div>
-    </div>
-    <!-- Image Section -->
-    <div class="images-container d-flex justify-content-center align-items-center mb-4">
-      <div class="text-center mx-3">
-        <p><strong><i class="fas fa-box"></i> Package Image:</strong></p>
-        <img src="{{ courier.avatar.url }}" alt="Package Image" class="img-fluid image-fixed-size">
-      </div>
-      <div class="text-center mx-3">
-        <p><strong><i class="fas fa-id-card-alt"></i> Photo ID:</strong></p>
-        <img src="{{ courier.photo_id.url }}" alt="Photo ID" class="img-fluid image-fixed-size">
-      </div>
-    </div>
-    <!-- Copy Link Button -->
-    <div class="copy-link-container text-center mt-4">
-      <input class="copy-link-input form-control d-inline-block w-auto" type="text" value="{{ request.build_absolute_uri }}" readonly>
-      <button class="copy-link-button btn btn-outline-primary ml-2" onclick="copyLink(this)">
-        <i class="fas fa-copy"></i> Copy Link
-      </button>
-    </div>
+    </h2>
+    <div class="wave"></div>
   </div>
-  {% endfor %}
-</div>
-{% else %}
-<h2 class="no-results text-center mt-5"><i class="fas fa-exclamation-circle"></i> No Results Found</h2>
+
+  <div class="courier-results container mb-5">
+    {% for courier in couriers %}
+    <!-- Courier Result Rendering -->
+    <div class="result shadow-lg p-4 mb-5 bg-white rounded">
+      <div class="result-heading text-center mb-4">
+        <h3 class="receipt-title display-4 mb-3"><i class="fas fa-receipt"></i> Receipt</h3>
+        <img src="https://res.cloudinary.com/dsbfohkyg/image/upload/v1725209292/amazon-shipping-dark._V533049204__cbgxzx.png" alt="Footer Logo" class="footer-logo">
+        <p class="text-muted"><strong><i class="fas fa-barcode"></i> Tracking ID:</strong> {{ courier.tracking_id }}</p>
+
+        <p class="text-muted"><strong><i class="fas fa-shipping-fast"></i> Courier Service:</strong> {{ courier.get_service_display }}</p>
+      </div>
+      <div class="result-details row align-items-start mb-4">
+        <!-- Left Column: Details -->
+        <div class="col-lg-6 col-md-12 mb-4">
+      
+
+          <p><strong><em class="fas fa-user"></em> Name:</strong> {{ courier.name }}</p>
+          <p><strong><i class="fas fa-user-tie"></i> Sender:</strong> {{ courier.sender }}</p>
+          <p><strong><i class="fas fa-user-check"></i> Receiver:</strong> {{ courier.reciever }}</p>
+          <p><strong><i class="fas fa-phone-alt"></i> Contact Info:</strong> {{ courier.contact_info }}</p>
+          <p><strong><i class="fas fa-map-marked-alt"></i> Shipping Address:</strong> {{ courier.address }}</p>
+        </div>
+        <!-- Right Column: Dates and Location -->
+        <div class="col-lg-6 col-md-12 mb-4">
+          <p><strong><i class="fas fa-box-open"></i> Quantity:</strong> {{ courier.quantity }}</p>
+          <p><strong><i class="fas fa-calendar-day"></i> Order Date:</strong> {{ courier.date_sent }}</p>
+          <p><strong><i class="fas fa-calendar-check"></i> Ship Date:</strong> {{ courier.date_arrival }}</p>
+          <p><strong><i class="fas fa-map-marker-alt"></i> Current Location:</strong> {{ courier.current_location }}</p>
+          <iframe src="{{ courier.map_location }}" allowfullscreen class="map-frame"></iframe>
+        </div>
+      </div>
+      <!-- Image Section -->
+      <div class="images-container d-flex justify-content-center align-items-center mb-4">
+        <div class="text-center mx-3">
+          <p><strong><i class="fas fa-box"></i> Package Image:</strong></p>
+          <img src="{{ courier.avatar.url }}" alt="Package Image" class="img-fluid image-fixed-size">
+        </div>
+        <div class="text-center mx-3">
+          <p><strong><i class="fas fa-id-card-alt"></i> Photo ID:</strong></p>
+          <img src="{{ courier.photo_id.url }}" alt="Photo ID" class="img-fluid image-fixed-size">
+        </div>
+      </div>
+      <!-- Copy Link Button -->
+      <div class="copy-link-container text-center mt-4">
+        <input class="copy-link-input form-control d-inline-block w-auto" type="text" value="{{ request.build_absolute_uri }}" readonly>
+        <button class="copy-link-button btn btn-outline-primary ml-2" onclick="copyLink(this)">
+          <i class="fas fa-copy"></i> Copy Link
+        </button>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+  {% else %}
+  <h2 class="no-results text-center mt-5"><i class="fas fa-exclamation-circle"></i> No Results Found</h2>
 {% endif %}
+
 
 <div class="refresh-button-container text-center mt-4 mb-5">
   <a href="{% url 'home' %}" class="refresh-button btn btn-secondary btn-lg">
