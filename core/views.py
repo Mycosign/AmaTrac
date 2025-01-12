@@ -89,19 +89,44 @@ def products_by_category(request, category_name):
 def logpage(request):
     return render(request, "core/logpage.html", {})  
 
+from django.shortcuts import render
+from django.utils import timezone
+from django.views.decorators.cache import cache_control
+from .models import Courier
+from .forms import SearchCourierForm
 
+@cache_control(no_cache=True, must_revalidate=True, no_store=True)
 def search_courier(request):
     form = SearchCourierForm(request.GET)
     couriers = None
+    context = {'form': form}
 
     if form.is_valid():
         tracking_id = form.cleaned_data['tracking_id']
-
-        # Perform the search based on the tracking_id
         couriers = Courier.objects.filter(tracking_id=tracking_id)
+        
+        if couriers.exists():
+            courier = couriers.first()
+            
+            # Build the complete URL and ensure HTTPS
+            domain = request.get_host()
+            if not request.is_secure():
+                domain = f"https://{domain}"
+            
+            full_tracking_url = request.build_absolute_uri()
+            if not full_tracking_url.startswith('https://'):
+                full_tracking_url = full_tracking_url.replace('http://', 'https://')
 
-    return render(request, 'core/index.html', {'form': form, 'couriers': couriers})
-
+            context.update({
+                'courier': courier,
+                'absolute_image_url': courier.get_avatar_url(),
+                'tracking_url': full_tracking_url,
+                'updated_time': timezone.now().isoformat(),
+                'domain': domain
+            })
+    
+    context['couriers'] = couriers
+    return render(request, 'core/index.html', context)
 
 
 @login_required
